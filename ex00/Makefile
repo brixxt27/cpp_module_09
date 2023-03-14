@@ -1,15 +1,8 @@
-NAME	=	polymorphism
+NAME	=	btc
 
 SRCS	=	main.cpp		\
-			Animal.cpp		\
-			Cat.cpp			\
-			Dog.cpp			\
-			WrongAnimal.cpp	\
-			WrongCat.cpp
+			BitcoinExchange.cpp
 
-INCS	=	Animal.hpp		\
-			Cat.hpp			\
-			Dog.hpp			\
-			WrongAnimal.hpp
+INCS	=	BitcoinExchange.hpp
 
 include ../template.mk
