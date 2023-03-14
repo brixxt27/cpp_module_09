@@ -1,6 +1,25 @@
 # cpp_module_09
 ### 이슈 관리: [전체 이슈 list](https://github.com/brixxt27/cpp_module_09/issues/1)
 
+# Chapter III
+## Module-specific rules
+- It is mandatory to use the standard containers to perform each exercise in this module.
+- 이번 모듈에서 각 예제를 해결하기 위해선 표준 컨테이너를 사용하는 것은 필수이다.
+
+- Once a container is used you cannot use it for the rest of the module.
+- 컨테이너가 사용되면 모듈의 나머지 부분에선 사용할 수 없다.
+
+- It is advisable to read the subject in its entirety before doing the exercises.
+- 예제를 풀기 전에 과제 전체를 읽는 것을 추천한다.
+- You must use at least one container for each exercise with the exception of exercise 02 which requires the use of two containers.
+- 당신은 두 개의 컨테이너 사용을 요구하는 ex02 를 제외하고 각 예제에서 최소한의 컨테이너를 사용해야 한다.
+
+- You must submit a Makefile for each program which will compile your source files
+to the required output with the flags -Wall, -Wextra and -Werror.
+- 당신은 -Wall, -Wextra, -Werror 플래그와 함께 요구되는 출력으로 소스 파일들을 컴파일할 각 프로그램을 위한 Makefile 을 제출해야 합니다.
+- You must use c++, and your Makefile must not relink.
+- Your Makefile must at least contain the rules $(NAME), all, clean, fclean and re.
+
 # Exercise 00: Bitcoin Exchange 
 ## Usage
 ```
@@ -17,14 +36,14 @@ make
 - You have to create a program which outputs the value of a certain amount of bitcoin on a certain date.
 - 당신은 특정 날짜에 일정한 양의 비트코인의 값을 출력하는 프로그램을 만들어야 합니다.
 
-- This program must use a database in csv format which will represent bitcoin price over time.
-- 이번 과제는 시간 경과에 따라 비트코인 값을 나타내는 csv 형식의 database 를 사용해야 합니다.
+- This program must use a database in csv(comma-separated values) format which will represent bitcoin price over time.
+- 이번 과제는 시간 경과에 따라 비트코인 값을 나타내는 csv(comma-separated values) 형식의 database 를 사용해야 합니다.
 
 - This database is provided with this subject.
 - 데이터베이스는 과제에서 제공된다.
 
 - The program will take as input a second database, storing the different prices/dates to evaluate.
-- 프로그램은 평가할 다양한 값/날짜로 정렬된 두 번째 데이터베이스를 입력으로 사용합니다.
+- 프로그램은 평가할 다양한 값/날짜로 정렬된 두 번째 database를 입력으로 사용합니다.
 
 - Your program must respect these rules:
 - 당신의 프로그램은 이 규칙들을 따라야 합니다.
@@ -32,10 +51,10 @@ make
 	- 프로그램 이름은 btc 이다.
 
 	- Your program must take a file as argument.
-	- 당신의 프로그램은 인자로 파일을 사용해야 한다.
+	- 당신의 프로그램은 인자로 하나의 파일을 사용해야 한다.
 
 	- Each line in this file must use the following format: "date | value".
-	- 이 파일에 있는 각 줄은 다음에 따라오는 형식을 사용해야 한다.: "data | value".
+	- 인자로 사용하는 이 파일에 있는 각 줄은 다음에 따라오는 형식을 사용해야 한다.: "date | value".
 
 	- A valid date will always be in the following format: Year-Month-Day.
 	- 유효한 날짜는 항상 다음 형식이다: Year-Month-Day.
@@ -50,7 +69,7 @@ make
 - 당신은 적절한 에러 메시지로 가능한 에러들을 다뤄야 한다.
 
 - Here is an example of an input.txt file:
-- 여기에 input.txt 파일의 예시가 있다.
+- 이것은 input.txt 파일의 예입니다.
 ```
 $> head input.txt
 date | value
@@ -66,10 +85,14 @@ date | value
 $>
 
 ```
-Your program will use the value in your input file and the associated date.
-Your program must display on the standard output the result of the value multiplied
-by the exchange rate according to the date indicated in your database.
-The following is an example of the program’s use.
+- Your program will use the value in your input file and the associated date.
+- 당신의 프로그램은 당신의 input 파일과 연관된 날짜에서의 값을 사용할 것이다.
+
+- Your program must display on the standard output the result of the value multiplied by the exchange rate according to the date indicated in your database.
+- 당신의 프로그램은 데이터베이스에 표시된 날짜에 따라 환율을 곱한 값의 결과를 표준 출력으로 표시해야 합니다.
+
+- The following is an example of the program’s use.
+- 다음은 프로그램 사용의 예입니다.
 ```
 $> ./btc
 Error: could not open file.
@@ -85,8 +108,8 @@ Error: bad input => 2001-42-42
 Error: too large a number.
 $>
 ```
-Warning: The container(s) you use to validate this exercise will no
-longer be usable for the rest of this module.
+- Warning: The container(s) you use to validate this exercise will no longer be usable for the rest of this module.
+- 주의: 당신이 이 예제를 해결하기 위해 사용하는 container(s) 는 이 모듈의 나머지 부분에서 더 이상 사용할 수 없습니다.
 
 # Exercise 01: Reverse Polish Notation 
 ## Usage
