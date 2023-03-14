@@ -14,23 +14,43 @@ make
 - Files to turn in : Makefile, main.cpp, BitcoinExchange.{cpp, hpp}
 - Forbidden functions : None
 ## Detail
-You have to create a program which outputs the value of a certain amount of bitcoin
-on a certain date.
-This program must use a database in csv format which will represent bitcoin price
-over time. This database is provided with this subject.
-The program will take as input a second database, storing the different prices/dates
-to evaluate.
-Your program must respect these rules:
-• The program name is btc.
-• Your program must take a file as argument.
-• Each line in this file must use the following format: "date | value".
-• A valid date will always be in the following format: Year-Month-Day.
-• A valid value must be either a float or a positive integer between 0 and 1000.
-You must use at least one container in your code to validate this
-exercise. You should handle possible errors with an appropriate
-error message.
+- You have to create a program which outputs the value of a certain amount of bitcoin on a certain date.
+- 당신은 특정 날짜에 일정한 양의 비트코인의 값을 출력하는 프로그램을 만들어야 합니다.
 
-Here is an example of an input.txt file:
+- This program must use a database in csv format which will represent bitcoin price over time.
+- 이번 과제는 시간 경과에 따라 비트코인 값을 나타내는 csv 형식의 database 를 사용해야 합니다.
+
+- This database is provided with this subject.
+- 데이터베이스는 과제에서 제공된다.
+
+- The program will take as input a second database, storing the different prices/dates to evaluate.
+- 프로그램은 평가할 다양한 값/날짜로 정렬된 두 번째 데이터베이스를 입력으로 사용합니다.
+
+- Your program must respect these rules:
+- 당신의 프로그램은 이 규칙들을 따라야 합니다.
+	- The program name is btc.
+	- 프로그램 이름은 btc 이다.
+
+	- Your program must take a file as argument.
+	- 당신의 프로그램은 인자로 파일을 사용해야 한다.
+
+	- Each line in this file must use the following format: "date | value".
+	- 이 파일에 있는 각 줄은 다음에 따라오는 형식을 사용해야 한다.: "data | value".
+
+	- A valid date will always be in the following format: Year-Month-Day.
+	- 유효한 날짜는 항상 다음 형식이다: Year-Month-Day.
+
+	- A valid value must be either a float or a positive integer between 0 and 1000.
+	- 유효한 값은 float 이거나 0 ~ 1000 사이인 양의 정수이어야 한다.
+
+- You must use at least one container in your code to validate this exercise.
+- 당신은 이 과제에서 유효성을 검사하려면 당신의 코드에 최소 하나의 컨테이너를 사용해야 한다.
+
+- You should handle possible errors with an appropriate error message.
+- 당신은 적절한 에러 메시지로 가능한 에러들을 다뤄야 한다.
+
+- Here is an example of an input.txt file:
+- 여기에 input.txt 파일의 예시가 있다.
 ```
 $> head input.txt
 date | value
@@ -82,14 +102,14 @@ make
 -Forbidden functions : None
 ## Detail
 You must create a program with these constraints:
-• The program name is RPN.
-• Your program must take an inverted Polish mathematical expression as an argument.
-• The numbers used in this operation will always be less than 10.
-• Your program must process this expression and output the correct result on the
+	- The program name is RPN.
+	- Your program must take an inverted Polish mathematical expression as an argument.
+	- The numbers used in this operation will always be less than 10.
+	- Your program must process this expression and output the correct result on the
 standard output.
-• If an error occurs during the execution of the program an error message should be
+	- If an error occurs during the execution of the program an error message should be
 displayed on the standard output.
-• Your program must be able to handle operations with these tokens: "+ - / *".
+	- Your program must be able to handle operations with these tokens: "+ - / *".
 You must use at least one container in your code to validate this
 exercise.
 
@@ -123,11 +143,11 @@ make
 
 ## Detail
 You must create a program with these constraints:
-• The name of the program is PmergeMe.
-• Your program must be able to use a positive integer sequence as argument.
-• Your program must use a merge-insert sort algorithm to sort the positive integer
+	- The name of the program is PmergeMe.
+	- Your program must be able to use a positive integer sequence as argument.
+	- Your program must use a merge-insert sort algorithm to sort the positive integer
 sequence.
-• If an error occurs during program execution, an error message should be displayed
+	- If an error occurs during program execution, an error message should be displayed
 on the standard output.
 You must use at least two different containers in your code to
 validate this exercise. Your program must be able to handle at
@@ -137,14 +157,14 @@ and thus to avoid using a generic function.
 
 Here are some additional guidelines on the information you should display line by line
 on the standard output
-• On the first line you must display an explicit text followed by the unsorted positive
+	- On the first line you must display an explicit text followed by the unsorted positive
 integer sequence.
-• On the second line you must display an explicit text followed by the sorted positive
+	- On the second line you must display an explicit text followed by the sorted positive
 integer sequence.
-• On the third line you must display an explicit text indicating the time used by
+	- On the third line you must display an explicit text indicating the time used by
 your algorithm by specifying the first container used to sort the positive integer
 sequence.
-• On the last line you must display an explicit text indicating the time used by
+	- On the last line you must display an explicit text indicating the time used by
 your algorithm by specifying the second container used to sort the positive integer
 sequence.
 
