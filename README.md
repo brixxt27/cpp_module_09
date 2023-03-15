@@ -10,15 +10,20 @@
 - 컨테이너가 사용되면 모듈의 나머지 부분에선 사용할 수 없다.
 
 - It is advisable to read the subject in its entirety before doing the exercises.
-- 예제를 풀기 전에 과제 전체를 읽는 것을 추천한다.
+- 예제를 풀기 전에 과제 전체를 읽는 것을 추천합니다.
+
 - You must use at least one container for each exercise with the exception of exercise 02 which requires the use of two containers.
 - 당신은 두 개의 컨테이너 사용을 요구하는 ex02 를 제외하고 각 예제에서 최소한의 컨테이너를 사용해야 한다.
 
 - You must submit a Makefile for each program which will compile your source files
 to the required output with the flags -Wall, -Wextra and -Werror.
 - 당신은 -Wall, -Wextra, -Werror 플래그와 함께 요구되는 출력으로 소스 파일들을 컴파일할 각 프로그램을 위한 Makefile 을 제출해야 합니다.
+
 - You must use c++, and your Makefile must not relink.
+- c++ 을 사용해야 하고, Makefile 은 relink 하면 안 됩니다.
+
 - Your Makefile must at least contain the rules $(NAME), all, clean, fclean and re.
+- Makefile 은 최소 $(NAME), all, clean, fclean, re 의 룰을 포함해야 합니다.
 
 # Exercise 00: Bitcoin Exchange 
 ## Usage
