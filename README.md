@@ -129,20 +129,35 @@ make
 - Files to turn in : Makefile, main.cpp, RPN.{cpp, hpp}
 -Forbidden functions : None
 ## Detail
-You must create a program with these constraints:
-	- The program name is RPN.
-	- Your program must take an inverted Polish mathematical expression as an argument.
-	- The numbers used in this operation will always be less than 10.
-	- Your program must process this expression and output the correct result on the
-standard output.
-	- If an error occurs during the execution of the program an error message should be
-displayed on the standard output.
-	- Your program must be able to handle operations with these tokens: "+ - / *".
-You must use at least one container in your code to validate this
-exercise.
+- You must create a program with these constraints:
+- 이들을 포함한 프로그램을 만들어야 합니다:
 
-You don’t need to manage the brackets or decimal numbers.
-Here is an example of a standard use:
+	- The program name is RPN.
+	- 프로그램의 이름은 RPN입니다.
+
+	- Your program must take an inverted Polish mathematical expression as an argument.
+	- 당신의 프로그램은 인자로 거꾸로된 Polish methematical expression 을 사용해야 합니다.
+
+	- The numbers used in this operation will always be less than 10.
+	- 연산 안에서 사용되는 숫자들은 항상 10 보다 작습니다.
+
+	- Your program must process this expression and output the correct result on the standard output.
+	- 당신의 프로그램은 이 수식을 풀어야 하고, 표준 출력에 올바른 결과를 출력해야 합니다.
+
+	- If an error occurs during the execution of the program an error message should be displayed on the standard output.
+	- 만약 프로그램 실행 중 에러가 발생한다면, 에러 메시지는 표준 출력에 표시되어야 합니다.
+
+	- Your program must be able to handle operations with these tokens: "+ - / *".
+	- 프로그램은 다음 나오는 token들이 들어 있는 수식들을 다룰 수 있어야 합니다: "+ - / *".
+
+- You must use at least one container in your code to validate this exercise.
+- 당신은 이번 예제를 통과하기 위해 코드 안에 최소 하나의 컨테이너를 포함해야 합니다.
+
+- You don’t need to manage the brackets or decimal numbers.
+- 당신은 괄호나 10진수를 관리할 필요가 없습니다.
+
+- Here is an example of a standard use:
+- 아래는 올바른 사용 예시입니다.
 ```
 $> ./RPN "8 9 * 9 - 9 - 9 - 4 - 1 +"
 42
@@ -152,9 +167,8 @@ $> ./RPN "(1 + 1)"
 Error
 $>
 ```
-Warning: The container(s) you used in the previous exercise are
-forbidden here. The container(s) you used to validate this exercise
-will not be usable for the rest of this module.
+- Warning: The container(s) you used in the previous exercise are forbidden here. The container(s) you used to validate this exercise will not be usable for the rest of this module.
+- 주의 사항: 이전 예제에서 사용한 컨테이너(들)은 여기에선 금지됩니다. 이번 과제를 풀기 위해 사용한 컨테이너(들)은 이 모듈의 나머지에서는 사용할 수 없습니다.
 
 # Exercise 02: PmergeMe 
 ## Usage
