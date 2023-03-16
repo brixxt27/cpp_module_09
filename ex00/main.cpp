@@ -2,13 +2,16 @@
 #include "fstream"
 #include "iostream"
 
+
 int	main(int argc, char* argv[])
 {
 	std::ifstream	fin_input;
 	std::ifstream	fin_data;
+
 	const char*		data_path = "./data.csv";
 	const char*		input_file = argv[1];
 	std::string		str_getline;
+
 	BitcoinExchange	btc;
 
 	if (argc > 2)

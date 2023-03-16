@@ -6,7 +6,6 @@
 #define MSG_ERR_NOT_OPEN_CSV_FILE "Error: There is not a data.csv. Please download a file!"
 
 #include <map>
-#include <string>
 
 class BitcoinExchange
 {
@@ -17,6 +16,10 @@ public:
 private:
 	BitcoinExchange(const BitcoinExchange& other);
 	BitcoinExchange&	operator=(const BitcoinExchange& rhs);
+
+
+	std::multimap<std::string, int>	input;
+	std::multimap<std::string, int>	csv;
 };
 
 #endif
