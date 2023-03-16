@@ -209,13 +209,22 @@ make
 - 아래는 당신이 표준 출력 위의 줄에 보여줘야 하는 정보에 대한 몇 가지 추가적인 가이드 라인이다.
 
 	- On the first line you must display an explicit text followed by the unsorted positive integer sequence.
+	- 첫 번째 줄에 당신은 정렬되지 않은 양의 정수 열이 따라오는 명시적인 텍스트를 보여줘야 합니다.
+
 	- On the second line you must display an explicit text followed by the sorted positive integer sequence.
+	- 두 번째 줄에 당신은 정렬된 양의 정수 열이 따라오는 명시적인 텍스트를 보여줘야 합니다.
+
 	- On the third line you must display an explicit text indicating the time used by your algorithm by specifying the first container used to sort the positive integer sequence.
+	- 세 번째 줄에 당신은 양의 정수 열을 정렬하기 위해 사용된 첫 번째 컨테이너로 지정한 당신의 알고리즘이 사용한 시간을 나타내는 명시적인 텍스트를 보여줘야 합니다.
+
 	- On the last line you must display an explicit text indicating the time used by your algorithm by specifying the second container used to sort the positive integer sequence.
+	- 마지막 줄에 당신은 양의 정수 열을 정렬하기 위해 사용된 두 번째 컨테이너로 지정한 당신의 알고리즘을 사용한 시간을 나타내는 명시적인 텍스트를 보여줘야 합니다.
 
 - The format for the display of the time used to carry out your sorting is free but the precision chosen must allow to clearly see the difference between the two containers used.
+- 당신의 정렬을 수행하기 위해 사용된 시간의 출력을 위한 형식은 자유입니다. 그러나 선택한 정밀도는 사용된 두 개의 컨테이너 사이의 다른 점을 명백하게 볼 수 있어야 합니다.
 
 - Here is an example of a standard use:
+- 아래는 올바른 사용 예시입니다.
 
 ```
 $> ./PmergeMe 3 5 9 7 4
@@ -234,4 +243,7 @@ $>
 ```
 
 - Warning: The container(s) you used in the previous exercises are forbidden here.
+- 주의 사항: 이전 예제에 당신이 사용한 컨테이너(들)은 여기에서 금지됩니다.
+
 - The management of errors related to duplicates is left to your discretion.
+- 중복 관련된 에러의 관리는 당신의 재량에 남겨둡니다.
