@@ -41,11 +41,8 @@ make
 - You have to create a program which outputs the value of a certain amount of bitcoin on a certain date.
 - 당신은 특정 날짜에 일정한 양의 비트코인의 값을 출력하는 프로그램을 만들어야 합니다.
 
-- This program must use a database in csv(comma-separated values) format which will represent bitcoin price over time.
-- 이번 과제는 시간 경과에 따라 비트코인 값을 나타내는 csv(comma-separated values) 형식의 database 를 사용해야 합니다.
-
-- This database is provided with this subject.
-- 데이터베이스는 과제에서 제공된다.
+- This program must use a database in csv(comma-separated values) format which will represent bitcoin price over time. This database is provided with this subject.
+- 이번 과제는 시간 경과에 따라 비트코인 값을 나타내는 csv(comma-separated values) 형식의 database 를 사용해야 합니다. 데이터베이스는 과제에서 제공된다.
 
 - The program will take as input a second database, storing the different prices/dates to evaluate.
 - 프로그램은 평가할 다양한 값/날짜로 정렬된 두 번째 database를 입력으로 사용합니다.
@@ -67,11 +64,8 @@ make
 	- A valid value must be either a float or a positive integer between 0 and 1000.
 	- 유효한 값은 float 이거나 0 ~ 1000 사이인 양의 정수이어야 한다.
 
-- You must use at least one container in your code to validate this exercise.
-- 당신은 이 과제에서 유효성을 검사하려면 당신의 코드에 최소 하나의 컨테이너를 사용해야 한다.
-
-- You should handle possible errors with an appropriate error message.
-- 당신은 적절한 에러 메시지로 가능한 에러들을 다뤄야 한다.
+- You must use at least one container in your code to validate this exercise. You should handle possible errors with an appropriate error message.
+- 당신은 이 과제에서 유효성을 검사하려면 당신의 코드에 최소 하나의 컨테이너를 사용해야 한다. 당신은 적절한 에러 메시지로 가능한 에러들을 다뤄야 한다.
 
 - Here is an example of an input.txt file:
 - 이것은 input.txt 파일의 예입니다.
@@ -90,11 +84,14 @@ date | value
 $>
 
 ```
-- Your program will use the value in your input file and the associated date.
+- Your program will use the value in your input file.
 - 당신의 프로그램은 당신의 input 파일과 연관된 날짜에서의 값을 사용할 것이다.
 
 - Your program must display on the standard output the result of the value multiplied by the exchange rate according to the date indicated in your database.
 - 당신의 프로그램은 데이터베이스에 표시된 날짜에 따라 환율을 곱한 값의 결과를 표준 출력으로 표시해야 합니다.
+
+- If the date used in the input does not exist in your DB then you must use the closest date contained in your DB. Be careful to use the lower date and not the upper one.
+- 만약 input 에서 사용된 날짜가 당신의 DB에 존재하지 않는다면, 당신은 당신의 DB에 포함되어 있는 가장 가까운 날짜를 사용해야 합니다. 최근 날짜가 아니라 오래된 날짜를 사용하도록 주의해주세요.
 
 - The following is an example of the program’s use.
 - 다음은 프로그램 사용의 예입니다.
