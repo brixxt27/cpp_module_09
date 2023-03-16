@@ -91,7 +91,7 @@ $>
 - 당신의 프로그램은 데이터베이스에 표시된 날짜에 따라 환율을 곱한 값의 결과를 표준 출력으로 표시해야 합니다.
 
 - If the date used in the input does not exist in your DB then you must use the closest date contained in your DB. Be careful to use the lower date and not the upper one.
-- 만약 input 에서 사용된 날짜가 당신의 DB에 존재하지 않는다면, 당신은 당신의 DB에 포함되어 있는 가장 가까운 날짜를 사용해야 합니다. 최근 날짜가 아니라 오래된 날짜를 사용하도록 주의해주세요.
+- 만약 input 에서 사용된 날짜가 당신의 DB에 존재하지 않는다면, 당신은 당신의 DB에 포함되어 있는 가장 가까운 날짜를 사용해야 합니다. 더 높은 날짜가 아니라 낮은 날짜를 사용하는 것에 주의하세요.
 
 - The following is an example of the program’s use.
 - 다음은 프로그램 사용의 예입니다.

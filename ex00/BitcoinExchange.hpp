@@ -14,15 +14,9 @@ public:
 	BitcoinExchange();
 	~BitcoinExchange();
 
-	std::multimap<std::string, int>&	getInputData();
-	std::multimap<std::string, int>&	getCsvData();
-
 private:
 	BitcoinExchange(const BitcoinExchange& other);
 	BitcoinExchange&	operator=(const BitcoinExchange& rhs);
-
-	std::multimap<std::string, int>	input_data;
-	std::multimap<std::string, int>	csv_data;
 };
 
 #endif
