@@ -184,37 +184,38 @@ make
 - Forbidden functions : None
 
 ## Detail
-You must create a program with these constraints:
+- You must create a program with these constraints:
+- 당신은 아래 제약을 가진 프로그램을 만들어야 합니다. 
+
 	- The name of the program is PmergeMe.
+	- 프로그램의 이름은 PmergeMe 입니다.
+
 	- Your program must be able to use a positive integer sequence as argument.
-	- Your program must use a merge-insert sort algorithm to sort the positive integer
-sequence.
-	- If an error occurs during program execution, an error message should be displayed
-on the standard output.
-You must use at least two different containers in your code to
-validate this exercise. Your program must be able to handle at
-least 3000 different integers.
-It is strongly advised to implement your algorithm for each container
-and thus to avoid using a generic function.
+	- 당신의 프로그램은 인자로 하나의 양수 열을 사용할 수 있어야 합니다.
 
-Here are some additional guidelines on the information you should display line by line
-on the standard output
-	- On the first line you must display an explicit text followed by the unsorted positive
-integer sequence.
-	- On the second line you must display an explicit text followed by the sorted positive
-integer sequence.
-	- On the third line you must display an explicit text indicating the time used by
-your algorithm by specifying the first container used to sort the positive integer
-sequence.
-	- On the last line you must display an explicit text indicating the time used by
-your algorithm by specifying the second container used to sort the positive integer
-sequence.
+	- Your program must use a merge-insert sort algorithm to sort the positive integer sequence.
+	- 당신의 프로그램은 양의 정수를 정렬하기 위한 merge-insert sort algorithm 을 사용해야 합니다.
 
-The format for the display of the time used to carry out your sorting
-is free but the precision chosen must allow to clearly see the
-difference between the two containers used.
+	- If an error occurs during program execution, an error message should be displayed on the standard output.
+	- 만약 프로그램 실행 중 에러가 발생한다면, 에러 메시지는 표준 출력에 표시 되어야 합니다.
 
-Here is an example of a standard use:
+- You must use at least two different containers in your code to validate this exercise. Your program must be able to handle at least 3000 different integers.
+- 당신은 이번 예제를 통과하기 위해선 코드 안에 적어도 다른 두 개의 컨테이너를 사용해야 합니다. 당신의 프로그램은 최소 서로 다른 3000 개의 정수들을 다룰 수 있어야 합니다.
+
+- It is strongly advised to implement your algorithm for each container and thus to avoid using a generic function.
+- 각각의 컨테이너를 위한 당신의 알고리즘을 구현하길 강력히 추천하고, 그러므로 generic function 을 사용하는 것은 피해라.
+
+- Here are some additional guidelines on the information you should display line by line on the standard output
+- 아래는 당신이 표준 출력 위의 줄에 보여줘야 하는 정보에 대한 몇 가지 추가적인 가이드 라인이다.
+
+	- On the first line you must display an explicit text followed by the unsorted positive integer sequence.
+	- On the second line you must display an explicit text followed by the sorted positive integer sequence.
+	- On the third line you must display an explicit text indicating the time used by your algorithm by specifying the first container used to sort the positive integer sequence.
+	- On the last line you must display an explicit text indicating the time used by your algorithm by specifying the second container used to sort the positive integer sequence.
+
+- The format for the display of the time used to carry out your sorting is free but the precision chosen must allow to clearly see the difference between the two containers used.
+
+- Here is an example of a standard use:
 
 ```
 $> ./PmergeMe 3 5 9 7 4
@@ -232,7 +233,5 @@ Error
 $>
 ```
 
-Warning: The container(s) you used in the previous exercises are
-forbidden here.
-The management of errors related to duplicates is left to your
-discretion.
+- Warning: The container(s) you used in the previous exercises are forbidden here.
+- The management of errors related to duplicates is left to your discretion.
