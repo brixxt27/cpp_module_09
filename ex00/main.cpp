@@ -36,7 +36,7 @@ int	main(int argc, char* argv[])
 
 	while (std::getline(fin_input, str_getline))
 	{
-
+		//str_getline.
 	}
 
 	return 0;
