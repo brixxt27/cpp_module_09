@@ -1,4 +1,4 @@
-# cpp_module_09
+# cpp_module_09 Version: 1.2
 ### 이슈 관리: [전체 이슈 list](https://github.com/brixxt27/cpp_module_09/issues/1)
 
 # Chapter III
@@ -62,7 +62,7 @@ make
 	- 유효한 날짜는 항상 다음 형식이다: Year-Month-Day.
 
 	- A valid value must be either a float or a positive integer between 0 and 1000.
-	- 유효한 값은 float 이거나 0 ~ 1000 사이인 양의 정수이어야 한다.
+	- 유효한 값은 0 ~ 1000 사이인 float 이거나 양의 정수이어야 한다.
 
 - You must use at least one container in your code to validate this exercise. You should handle possible errors with an appropriate error message.
 - 당신은 이 과제에서 유효성을 검사하려면 당신의 코드에 최소 하나의 컨테이너를 사용해야 한다. 당신은 적절한 에러 메시지로 가능한 에러들을 다뤄야 한다.
