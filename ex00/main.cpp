@@ -33,10 +33,33 @@ int	main(int argc, char* argv[])
 		std::cout << MSG_ERR_NOT_OPEN_CSV_FILE << std::endl;
 		return EXIT_FAILURE;
 	}
+	
+	std::size_t	pos = 0;
+	int			i = 0;
+	std::multimap<std::string, double>::iterator	it;
 
 	while (std::getline(fin_input, str_getline))
 	{
-		//str_getline.
+		if ((pos = str_getline.find(' ')) == std::string::npos)
+		{
+			std::cout << "There is not a space" << std::endl;
+			return EXIT_FAILURE;
+		}
+		//if (i == 0)
+		//{
+			pos = str_getline.find(' ');
+		//}
+		btc.getValue().insert(std::pair<std::string, double>(str_getline.substr(0, pos), i));
+		i++;
+	}
+
+	for (it = btc.getValue().begin(); it != btc.getValue().end(); it++)
+	{
+		std::cout << (*it).first << std::endl;
+	}
+	for (it = btc.getValue().begin(); it != btc.getValue().end(); it++)
+	{
+		std::cout << (*it).second << std::endl;
 	}
 
 	return 0;

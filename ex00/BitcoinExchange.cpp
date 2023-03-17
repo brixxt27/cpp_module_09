@@ -27,8 +27,9 @@ void	BitcoinExchange::printMultipledResult() const
 
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
+	: mValue(other.mValue)
+	, mExchangeRate(other.mExchangeRate)
 {
-
 }
 
 BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& rhs)
