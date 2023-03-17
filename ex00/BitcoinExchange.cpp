@@ -12,12 +12,12 @@ BitcoinExchange::~BitcoinExchange()
 
 std::multimap<std::string, double>&	BitcoinExchange::getValue()
 {
-	return value;
+	return mValue;
 }
 
 std::multimap<std::string, double>&	BitcoinExchange::getExchangeRate()
 {
-	return exchange_rate;
+	return mExchangeRate;
 }
 
 void	BitcoinExchange::printMultipledResult() const

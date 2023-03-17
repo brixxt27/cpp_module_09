@@ -24,8 +24,8 @@ private:
 	BitcoinExchange(const BitcoinExchange& other);
 	BitcoinExchange&	operator=(const BitcoinExchange& rhs);
 
-	std::multimap<std::string, double>	value;
-	std::multimap<std::string, double>	exchange_rate;
+	std::multimap<std::string, double>	mValue;
+	std::multimap<std::string, double>	mExchangeRate;
 };
 
 #endif
