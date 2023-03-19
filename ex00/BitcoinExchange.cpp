@@ -5,33 +5,33 @@
  */
 
 BitcoinExchange::BitcoinExchange()
+	: _value(0)
+	, _exchange_rate(0)
 {
-	
 }
 
 BitcoinExchange::~BitcoinExchange()
 {
-	
 }
 
-float	BitcoinExchange::getValue() const
-{
-	return mValue;
-}
+//float	BitcoinExchange::getValue() const
+//{
+//	return _value;
+//}
 
-float	BitcoinExchange::getExchangeRate() const
-{
-	return mExchangeRate;
-}
+//float	BitcoinExchange::getExchangeRate() const
+//{
+//	return _exchange_rate;
+//}
 
 void	BitcoinExchange::setValue(float value)
 {
-	mValue = value;
+	_value = value;
 }
 
-void	BitcoinExchange::setExchangeRate(float exchangeRate)
+void	BitcoinExchange::setExchangeRate(float exchange_rate)
 {
-	mExchangeRate = exchangeRate;
+	_exchange_rate = exchange_rate;
 }
 
 
@@ -45,8 +45,8 @@ void	BitcoinExchange::printMultipledResult() const
  */
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
-	: mValue(other.mValue)
-	, mExchangeRate(other.mExchangeRate)
+	: _value(other._value)
+	, _exchange_rate(other._exchange_rate)
 {
 }
 
@@ -55,7 +55,7 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& rhs)
 	if (this == &rhs)
 		return *this;
 
-	mValue = rhs.mValue;
-	mExchangeRate = rhs.mExchangeRate;
+	_value = rhs._value;
+	_exchange_rate = rhs._exchange_rate;
 	return *this;
 }
