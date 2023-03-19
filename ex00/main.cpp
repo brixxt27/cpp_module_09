@@ -3,16 +3,15 @@
 int	main(int argc, char* argv[])
 {
 	std::ifstream	fin_input;
-	std::ifstream	fin_data;
+	std::ifstream	fin_csv;
 
 	const char*		input_path = argv[1];
-	const char*		default_data_path = "./data.csv";
-	char*			data_path;
-	std::string		str_getline;
+	const char*		default_csv_path = "./data.csv";
+	char*			csv_path;
 
 	BitcoinExchange	btc;
 
-	std::map<std::string, float>	map_data;
+	std::map<std::string, float>	map_csv;
 
 	/**
 	 * Control files
@@ -32,15 +31,15 @@ int	main(int argc, char* argv[])
 
 	if (argc == 3)
 	{
-		data_path = argv[2];
-		fin_data.open(data_path, std::ifstream::in);
+		csv_path = argv[2];
+		fin_csv.open(csv_path, std::ifstream::in);
 	}
 	else
 	{
-		fin_data.open(default_data_path, std::ifstream::in);
+		fin_csv.open(default_csv_path, std::ifstream::in);
 	}
 
-	if (fin_data.is_open() == false)
+	if (fin_csv.is_open() == false)
 	{
 		std::cout << MSG_ERR_NOT_OPEN_CSV_FILE << std::endl;
 		return EXIT_FAILURE;
@@ -49,22 +48,27 @@ int	main(int argc, char* argv[])
 	/**
 	 * Get data to make map of data.csv
 	 */
-	size_t	pos = 0;
+	std::string	str_getline;
+	const std::string	first_line_of_data = "date,exchange_rate";
+
+	//size_t	pos = 0;
 	int		i = 0;
 
 	std::multimap<std::string, float>::iterator	it;
 
-	while (std::getline(fin_data, str_getline))
+	while (std::getline(fin_csv, str_getline))
 	{
+		if (i == 0)
+		{
+			if (str_getline != first_line_of_data)
+				std::cout << MSG_ERR_NOT_EXIST_FIRST_LINE_CSV << std::endl;
+			return EXIT_FAILURE;
+		}
 		//if ((pos = str_getline.find(' ')) == std::string::npos)
 		//{
 		//	std::cout << "There is not a space" << std::endl;
 		//	return EXIT_FAILURE;
 		//}
-		if (i == 0)
-		{
-			pos = str_getline.find(' ');
-		}
 		//btc.getValue().insert(std::pair<std::string, double>(str_getline.substr(0, pos), i));
 		i++;
 	}
