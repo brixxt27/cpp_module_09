@@ -52,25 +52,23 @@ int	main(int argc, char* argv[])
 	const std::string	first_line_of_data = "date,exchange_rate";
 
 	//size_t	pos = 0;
-	int		i = 0;
 
 	std::multimap<std::string, float>::iterator	it;
 
+	std::getline(fin_csv, str_getline);
+	if (str_getline != first_line_of_data)
+	{
+		std::cout << MSG_ERR_NOT_EXIST_FIRST_LINE_CSV << std::endl;
+		return EXIT_FAILURE;
+	}
 	while (std::getline(fin_csv, str_getline))
 	{
-		if (i == 0)
-		{
-			if (str_getline != first_line_of_data)
-				std::cout << MSG_ERR_NOT_EXIST_FIRST_LINE_CSV << std::endl;
-			return EXIT_FAILURE;
-		}
 		//if ((pos = str_getline.find(' ')) == std::string::npos)
 		//{
 		//	std::cout << "There is not a space" << std::endl;
 		//	return EXIT_FAILURE;
 		//}
 		//btc.getValue().insert(std::pair<std::string, double>(str_getline.substr(0, pos), i));
-		i++;
 	}
 
 	//for (it = btc.getValue().begin(); it != btc.getValue().end(); it++)
