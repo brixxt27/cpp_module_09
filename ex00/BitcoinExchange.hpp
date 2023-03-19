@@ -5,8 +5,10 @@
 #define MSG_ERR_NOT_APPROPRIATE_ARGUMENTS	"Error: There are not appropriate arguments"
 #define MSG_ERR_NOT_OPEN_CSV_FILE			"Error: There is not a data.csv. Please download a file!"
 
+#include "fstream"
 #include <map>
 #include <iostream>
+
 
 class BitcoinExchange
 {
@@ -14,11 +16,11 @@ public:
 	BitcoinExchange();
 	~BitcoinExchange();
 
-	float	getValue() const;
-	float	getExchangeRate() const;
+	//float	getValue() const;
+	//float	getExchangeRate() const;
 
 	void	setValue(float value);
-	void	setExchangeRate(float exchangeRate);
+	void	setExchangeRate(float exchange_rate);
 
 	void	printMultipledResult() const;
 	//double	multiplyValueAndExchangeRate() const;
@@ -28,8 +30,8 @@ private:
 	BitcoinExchange&	operator=(const BitcoinExchange& rhs);
 
 	//std::string	mDate;
-	float	mValue;
-	float	mExchangeRate;
+	float	_value;
+	float	_exchange_rate;
 };
 
 #endif
