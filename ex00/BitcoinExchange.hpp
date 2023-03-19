@@ -14,8 +14,11 @@ public:
 	BitcoinExchange();
 	~BitcoinExchange();
 
-	std::multimap<std::string, double>&	getValue();
-	std::multimap<std::string, double>&	getExchangeRate();
+	float	getValue() const;
+	float	getExchangeRate() const;
+
+	void	setValue(float value);
+	void	setExchangeRate(float exchangeRate);
 
 	void	printMultipledResult() const;
 	//double	multiplyValueAndExchangeRate() const;
@@ -24,8 +27,9 @@ private:
 	BitcoinExchange(const BitcoinExchange& other);
 	BitcoinExchange&	operator=(const BitcoinExchange& rhs);
 
-	std::multimap<std::string, double>	mValue;
-	std::multimap<std::string, double>	mExchangeRate;
+	//std::string	mDate;
+	float	mValue;
+	float	mExchangeRate;
 };
 
 #endif
