@@ -2,10 +2,31 @@
 
 static bool	isValidDate(std::string str_date)
 {
-	static_cast<void>(str_date);
-	/**
-	 * implement
-	*/
+	std::istringstream	iss(str_date);
+	int	year;
+	int	month;
+	int	day;
+	char	del1;
+	char	del2;
+
+	iss >> year >> del1 >> month >> del2 >> day;
+
+	 // Initialize a tm structure with the input date
+    std::tm timeinfo = {};
+    timeinfo.tm_year = year - 1900; // years since 1900
+    timeinfo.tm_mon = month - 1;    // months since January
+    timeinfo.tm_mday = day;         // day of the month
+    
+    // Convert the tm structure to a time_t value
+    //std::time_t rawtime = std::mktime(&timeinfo);
+	std::cout << "year " << timeinfo.tm_year << " month " <<  timeinfo.tm_mon << " day " << timeinfo.tm_mday << std::endl;
+	std::mktime(&timeinfo);
+    
+	//if (del1 != '-' || del2 != '-' || )
+	//	return false;
+	std::cout << "year " << timeinfo.tm_year << " month " <<  timeinfo.tm_mon << " day " << timeinfo.tm_mday << std::endl << std::endl;
+	
+
 	return true;
 }
 
@@ -14,9 +35,14 @@ static bool	isValidRate(double rate)
 	return rate >= 0;
 }
 
-static bool	isValidValue(double value)
+static bool	isLargeNumber(double value)
 {
-	return (value > 0 && value < 1000);
+	return (value < 1000);
+}
+
+static bool isPositiveNumber(double value)
+{
+	return (value > 0);
 }
 
 int	main(int argc, char* argv[])
@@ -164,29 +190,32 @@ int	main(int argc, char* argv[])
 		double	value;
 
 		iss >> str_date >> del >> str_value;
+
+		if (isValidDate(str_date) == false)
+		{
+			std::cout << "Error: bad input => " << str_date << std::endl;
+			continue;
+		}
+
+		value = std::strtod(str_value.c_str(), NULL);
+		if (isLargeNumber(value) == false)
+		{
+			std::cout << "Error: too large a number." << std::endl;
+			continue;
+		}
+		if (isPositiveNumber(value) == false)
+		{
+			std::cout << "Error: not a positive number." << std::endl;
+			continue;
+		}
+
 		if (del != "|")
 		{
 			std::cout << "It's not a correct delimeter." << std::endl;
 			continue;
-			//return EXIT_FAILURE;
 		}
-
-		if (isValidDate(str_date) == false)
-		{
-			std::cout << MSG_ERR_NOT_VALID_DATE << std::endl;
-			continue;
-			//return EXIT_FAILURE;
-		}
-
-		value = std::strtod(str_value.c_str(), NULL);
-		if (isValidValue(value) == false)
-		{
-			std::cout << MSG_ERR_NOT_VALID_VALUE << std::endl;
-			continue;
-			//return EXIT_FAILURE;
-		}
-
 		std::cout << str_date << " : " << str_value << std::endl;
+
 	}
 
 	return 0;
