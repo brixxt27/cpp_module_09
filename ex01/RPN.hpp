@@ -1,10 +1,14 @@
 #ifndef RPN
 #define RPN
 
-class RPN
-{
-public:
-private:
-};
+#include <stack>
+#include <iostream>
+#include <sstream>
+
+//class RPN
+//{
+//public:
+//private:
+//};
 
 #endif
