@@ -45,7 +45,7 @@ make
 - 이번 과제는 시간 경과에 따라 비트코인 값을 나타내는 csv(comma-separated values) 형식의 database 를 사용해야 합니다. 데이터베이스는 과제에서 제공된다.
 
 - The program will take as input a second database, storing the different prices/dates to evaluate.
-- 프로그램은 평가할 다양한 값/날짜로 정렬된 두 번째 database를 입력으로 사용합니다.
+- 프로그램은 평가할 다양한 값/날짜로 저장된 두 번째 database를 입력으로 사용합니다.
 
 - Your program must respect these rules:
 - 당신의 프로그램은 이 규칙들을 따라야 합니다.

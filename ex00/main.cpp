@@ -3,30 +3,30 @@
 static bool	isValidDate(std::string str_date)
 {
 	std::istringstream	iss(str_date);
+
 	int	year;
 	int	month;
 	int	day;
 	char	del1;
 	char	del2;
 
+    std::tm timeinfo = {};
+
 	iss >> year >> del1 >> month >> del2 >> day;
 
-	 // Initialize a tm structure with the input date
-    std::tm timeinfo = {};
-    timeinfo.tm_year = year - 1900; // years since 1900
-    timeinfo.tm_mon = month - 1;    // months since January
-    timeinfo.tm_mday = day;         // day of the month
-    
-    // Convert the tm structure to a time_t value
-    //std::time_t rawtime = std::mktime(&timeinfo);
-	std::cout << "year " << timeinfo.tm_year << " month " <<  timeinfo.tm_mon << " day " << timeinfo.tm_mday << std::endl;
+
+    timeinfo.tm_year = year - 1900;
+    timeinfo.tm_mon = month - 1;
+    timeinfo.tm_mday = day;
 	std::mktime(&timeinfo);
     
-	//if (del1 != '-' || del2 != '-' || )
-	//	return false;
-	std::cout << "year " << timeinfo.tm_year << " month " <<  timeinfo.tm_mon << " day " << timeinfo.tm_mday << std::endl << std::endl;
-	
-
+	if (del1 != '-' 
+		|| del2 != '-'
+		|| timeinfo.tm_year != year - 1900
+		|| timeinfo.tm_mon != month - 1
+		|| timeinfo.tm_mday != day
+	)
+		return false;
 	return true;
 }
 
@@ -214,7 +214,7 @@ int	main(int argc, char* argv[])
 			std::cout << "It's not a correct delimeter." << std::endl;
 			continue;
 		}
-		std::cout << str_date << " : " << str_value << std::endl;
+		std::cout << str_date << " => " << str_value << " = " << std::endl;
 
 	}
 
