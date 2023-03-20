@@ -151,7 +151,7 @@ make
 - 당신은 이번 예제를 통과하기 위해 코드 안에 최소 하나의 컨테이너를 포함해야 합니다.
 
 - You don’t need to manage the brackets or decimal numbers.
-- 당신은 괄호나 10진수를 관리할 필요가 없습니다.
+- 당신은 괄호나 10진수를 관리할 필요가 없습니다. (역자: 여기서 10진수란 10 이하의 수가 올 수 있는데 14 이렇게 오면 1 과 4가 아니라 에러라는 이야기 같다.)
 
 - Here is an example of a standard use:
 - 아래는 올바른 사용 예시입니다.

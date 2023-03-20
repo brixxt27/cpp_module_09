@@ -1,7 +1,8 @@
 NAME	=	RPN
 
 SRCS	=	main.cpp		\
+			RPN.cpp
 
-INCS	=			\
+INCS	=	RPN.hpp
 
 include ../template.mk
