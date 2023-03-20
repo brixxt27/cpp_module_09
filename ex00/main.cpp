@@ -3,12 +3,20 @@
 static bool	isValidDate(std::string str_date)
 {
 	static_cast<void>(str_date);
+	/**
+	 * implement
+	*/
 	return true;
 }
 
 static bool	isValidRate(double rate)
 {
 	return rate >= 0;
+}
+
+static bool	isValidValue(double value)
+{
+	return (value > 0 && value < 1000);
 }
 
 int	main(int argc, char* argv[])
@@ -99,82 +107,87 @@ int	main(int argc, char* argv[])
 	/**
 	 * Get data to make map of second data.csv
 	 */
-	std::getline(fin_second_csv, str_getline);
-	if (str_getline != first_line_of_data)
+	
+	if (argc == 3)
 	{
-		std::cout << MSG_ERR_NOT_EXIST_FIRST_LINE << std::endl;
-		return EXIT_FAILURE;
-	}
-	while (std::getline(fin_second_csv, str_getline))
-	{
-		std::string	str_date;
-		std::string	str_exchange_rate;
-		std::istringstream iss(str_getline);
-
-		double	exchange_rate;
-
-		std::getline(iss, str_date, ',');
-		if (isValidDate(str_date) == false)
+		std::getline(fin_second_csv, str_getline);
+		if (str_getline != first_line_of_data)
 		{
-			std::cout << MSG_ERR_NOT_VALID_DATE << std::endl;
+			std::cout << MSG_ERR_NOT_EXIST_FIRST_LINE << std::endl;
 			return EXIT_FAILURE;
 		}
-
-		std::getline(iss, str_exchange_rate, '\0');
-		exchange_rate = std::strtod(str_exchange_rate.c_str(), NULL);
-		if (isValidRate(exchange_rate) == false)
+		while (std::getline(fin_second_csv, str_getline))
 		{
-			std::cout << MSG_ERR_NOT_VALID_VALUE << std::endl;
-			return EXIT_FAILURE;
+			std::string	str_date;
+			std::string	str_exchange_rate;
+			std::istringstream iss(str_getline);
+
+			double	exchange_rate;
+
+			std::getline(iss, str_date, ',');
+			if (isValidDate(str_date) == false)
+			{
+				std::cout << MSG_ERR_NOT_VALID_DATE << std::endl;
+				return EXIT_FAILURE;
+			}
+
+			std::getline(iss, str_exchange_rate, '\0');
+			exchange_rate = std::strtod(str_exchange_rate.c_str(), NULL);
+			if (isValidRate(exchange_rate) == false)
+			{
+				std::cout << MSG_ERR_NOT_VALID_VALUE << std::endl;
+				return EXIT_FAILURE;
+			}
+			map_csv.insert(std::pair<std::string, double>(str_date, exchange_rate));
 		}
-		map_csv.insert(std::pair<std::string, double>(str_date, exchange_rate));
 	}
 
-	/**
-	 * print map data
-	*/
-	std::map<std::string, double>::iterator	it;
-
-	for (it = map_csv.begin(); it != map_csv.end(); it++)
-	{
-		std::cout << (*it).first << " : " << (*it).second << std::endl;
-	}
 
 	/**
 	 * multiply exchange rate and value and print this
 	*/
-	//const std::string	first_line_of_input = "date | value";
+	const std::string	first_line_of_input = "date | value";
 
-	//std::getline(fin_input, str_getline);
-	//if (str_getline != first_line_of_input)
-	//{
-	//	std::cout << MSG_ERR_NOT_EXIST_FIRST_LINE << std::endl;
-	//	return EXIT_FAILURE;
-	//}
-	//while (std::getline(fin_first_csv, str_getline))
-	//{
-	//	std::string	str_date;
-	//	std::string	str_exchange_rate;
-	//	std::istringstream iss(str_getline);
+	std::getline(fin_input, str_getline);
+	if (str_getline != first_line_of_input)
+	{
+		std::cout << MSG_ERR_NOT_EXIST_FIRST_LINE << std::endl;
+		return EXIT_FAILURE;
+	}
+	while (std::getline(fin_input, str_getline))
+	{
+		std::string	str_date;
+		std::string	del;
+		std::string	str_value;
+		std::istringstream iss(str_getline);
 
-	//	double	exchange_rate;
+		double	value;
 
-	//	std::getline(iss, str_date, ',');
-	//	if (isValidDate(str_date) == false)
-	//	{
-	//		std::cout << MSG_ERR_NOT_VALID_DATE << std::endl;
-	//		return EXIT_FAILURE;
-	//	}
+		iss >> str_date >> del >> str_value;
+		if (del != "|")
+		{
+			std::cout << "It's not a correct delimeter." << std::endl;
+			continue;
+			//return EXIT_FAILURE;
+		}
 
-	//	std::getline(iss, str_exchange_rate, '\0');
-	//	exchange_rate = std::strtod(str_exchange_rate.c_str(), NULL);
-	//	if (isValidRate(exchange_rate) == false)
-	//	{
-	//		std::cout << MSG_ERR_NOT_VALID_VALUE << std::endl;
-	//		return EXIT_FAILURE;
-	//	}
-	//	map_csv.insert(std::pair<std::string, double>(str_date, exchange_rate));
-	//}
+		if (isValidDate(str_date) == false)
+		{
+			std::cout << MSG_ERR_NOT_VALID_DATE << std::endl;
+			continue;
+			//return EXIT_FAILURE;
+		}
+
+		value = std::strtod(str_value.c_str(), NULL);
+		if (isValidValue(value) == false)
+		{
+			std::cout << MSG_ERR_NOT_VALID_VALUE << std::endl;
+			continue;
+			//return EXIT_FAILURE;
+		}
+
+		std::cout << str_date << " : " << str_value << std::endl;
+	}
 
 	return 0;
 }
