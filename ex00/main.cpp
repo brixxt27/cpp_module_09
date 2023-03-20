@@ -14,7 +14,8 @@ static bool	isValidRate(double rate)
 int	main(int argc, char* argv[])
 {
 	std::ifstream	fin_input;
-	std::ifstream	fin_csv;
+	std::ifstream	fin_first_csv;
+	std::ifstream	fin_second_csv;
 
 	const char*		input_path = argv[1];
 	const char*		default_csv_path = "./data.csv";
@@ -38,40 +39,39 @@ int	main(int argc, char* argv[])
 		return EXIT_FAILURE;
 	}
 
-	if (argc == 3)
-	{
-		csv_path = argv[2];
-		fin_csv.open(csv_path, std::ifstream::in);
-	}
-	else
-	{
-		fin_csv.open(default_csv_path, std::ifstream::in);
-	}
-
-	if (fin_csv.is_open() == false)
+	fin_first_csv.open(default_csv_path, std::ifstream::in);
+	if (fin_first_csv.is_open() == false)
 	{
 		std::cout << MSG_ERR_NOT_OPEN_CSV_FILE << std::endl;
 		return EXIT_FAILURE;
 	}
+
+	if (argc == 3)
+	{
+		csv_path = argv[2];
+		fin_second_csv.open(csv_path, std::ifstream::in);
+		if (fin_second_csv.is_open() == false)
+		{
+			std::cout << MSG_ERR_NOT_OPEN_CSV_FILE << std::endl;
+			return EXIT_FAILURE;
+		}
+	}
 	
 	/**
-	 * Get data to make map of data.csv
+	 * Get data to make map of first data.csv
 	 */
 	std::string	str_getline;
 	const std::string	first_line_of_data = "date,exchange_rate";
 
-
 	std::map<std::string, double>	map_csv;
-	std::map<std::string, double>::iterator	it;
 
-
-	std::getline(fin_csv, str_getline);
+	std::getline(fin_first_csv, str_getline);
 	if (str_getline != first_line_of_data)
 	{
-		std::cout << MSG_ERR_NOT_EXIST_FIRST_LINE_CSV << std::endl;
+		std::cout << MSG_ERR_NOT_EXIST_FIRST_LINE << std::endl;
 		return EXIT_FAILURE;
 	}
-	while (std::getline(fin_csv, str_getline))
+	while (std::getline(fin_first_csv, str_getline))
 	{
 		std::string	str_date;
 		std::string	str_exchange_rate;
@@ -95,6 +95,86 @@ int	main(int argc, char* argv[])
 		}
 		map_csv.insert(std::pair<std::string, double>(str_date, exchange_rate));
 	}
+
+	/**
+	 * Get data to make map of second data.csv
+	 */
+	std::getline(fin_second_csv, str_getline);
+	if (str_getline != first_line_of_data)
+	{
+		std::cout << MSG_ERR_NOT_EXIST_FIRST_LINE << std::endl;
+		return EXIT_FAILURE;
+	}
+	while (std::getline(fin_second_csv, str_getline))
+	{
+		std::string	str_date;
+		std::string	str_exchange_rate;
+		std::istringstream iss(str_getline);
+
+		double	exchange_rate;
+
+		std::getline(iss, str_date, ',');
+		if (isValidDate(str_date) == false)
+		{
+			std::cout << MSG_ERR_NOT_VALID_DATE << std::endl;
+			return EXIT_FAILURE;
+		}
+
+		std::getline(iss, str_exchange_rate, '\0');
+		exchange_rate = std::strtod(str_exchange_rate.c_str(), NULL);
+		if (isValidRate(exchange_rate) == false)
+		{
+			std::cout << MSG_ERR_NOT_VALID_VALUE << std::endl;
+			return EXIT_FAILURE;
+		}
+		map_csv.insert(std::pair<std::string, double>(str_date, exchange_rate));
+	}
+
+	/**
+	 * print map data
+	*/
+	std::map<std::string, double>::iterator	it;
+
+	for (it = map_csv.begin(); it != map_csv.end(); it++)
+	{
+		std::cout << (*it).first << " : " << (*it).second << std::endl;
+	}
+
+	/**
+	 * multiply exchange rate and value and print this
+	*/
+	//const std::string	first_line_of_input = "date | value";
+
+	//std::getline(fin_input, str_getline);
+	//if (str_getline != first_line_of_input)
+	//{
+	//	std::cout << MSG_ERR_NOT_EXIST_FIRST_LINE << std::endl;
+	//	return EXIT_FAILURE;
+	//}
+	//while (std::getline(fin_first_csv, str_getline))
+	//{
+	//	std::string	str_date;
+	//	std::string	str_exchange_rate;
+	//	std::istringstream iss(str_getline);
+
+	//	double	exchange_rate;
+
+	//	std::getline(iss, str_date, ',');
+	//	if (isValidDate(str_date) == false)
+	//	{
+	//		std::cout << MSG_ERR_NOT_VALID_DATE << std::endl;
+	//		return EXIT_FAILURE;
+	//	}
+
+	//	std::getline(iss, str_exchange_rate, '\0');
+	//	exchange_rate = std::strtod(str_exchange_rate.c_str(), NULL);
+	//	if (isValidRate(exchange_rate) == false)
+	//	{
+	//		std::cout << MSG_ERR_NOT_VALID_VALUE << std::endl;
+	//		return EXIT_FAILURE;
+	//	}
+	//	map_csv.insert(std::pair<std::string, double>(str_date, exchange_rate));
+	//}
 
 	return 0;
 }

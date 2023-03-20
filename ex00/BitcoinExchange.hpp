@@ -4,7 +4,7 @@
 #define MSG_ERR_NOT_OPEN	"Error: could not open file."
 #define MSG_ERR_NOT_APPROPRIATE_ARGUMENTS	"Error: There are not appropriate arguments"
 #define MSG_ERR_NOT_OPEN_CSV_FILE	"Error: There is not a data.csv. Please download a file!"
-#define MSG_ERR_NOT_EXIST_FIRST_LINE_CSV	"There is not a first line in csv file."
+#define MSG_ERR_NOT_EXIST_FIRST_LINE	"There is not a first line."
 #define MSG_ERR_NOT_EXIST_COMMA	"There is not a comma in the csv file."
 #define MSG_ERR_NOT_VALID_DATE	"It's not valid date"
 #define MSG_ERR_NOT_VALID_VALUE	"It't not valid value"
