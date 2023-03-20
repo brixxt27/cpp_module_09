@@ -1,5 +1,16 @@
 #include "BitcoinExchange.hpp"
 
+static bool	isValidDate(std::string str_date)
+{
+	static_cast<void>(str_date);
+	return true;
+}
+
+static bool	isValidRate(double rate)
+{
+	return rate >= 0;
+}
+
 int	main(int argc, char* argv[])
 {
 	std::ifstream	fin_input;
@@ -49,10 +60,9 @@ int	main(int argc, char* argv[])
 	std::string	str_getline;
 	const std::string	first_line_of_data = "date,exchange_rate";
 
-	size_t	pos = 0;
 
-	std::map<std::string, float>	map_csv;
-	std::multimap<std::string, float>::iterator	it;
+	std::map<std::string, double>	map_csv;
+	std::map<std::string, double>::iterator	it;
 
 
 	std::getline(fin_csv, str_getline);
@@ -63,28 +73,28 @@ int	main(int argc, char* argv[])
 	}
 	while (std::getline(fin_csv, str_getline))
 	{
-		pos = str_getline.find(',');
-		if (pos == std::string::npos)
+		std::string	str_date;
+		std::string	str_exchange_rate;
+		std::istringstream iss(str_getline);
+
+		double	exchange_rate;
+
+		std::getline(iss, str_date, ',');
+		if (isValidDate(str_date) == false)
 		{
-			std::cout << MSG_ERR_NOT_EXIST_COMMA << std::endl;
+			std::cout << MSG_ERR_NOT_VALID_DATE << std::endl;
 			return EXIT_FAILURE;
 		}
-		map_csv.insert(std::pair<std::string, float>(str_getline.substr(0, pos), 1));
-	}
-		//if ((pos = str_getline.find(' ')) == std::string::npos)
-		//{
-		//	std::cout << "There is not a space" << std::endl;
-		//	return EXIT_FAILURE;
-		//}
 
-	//for (it = btc.getValue().begin(); it != btc.getValue().end(); it++)
-	//{
-	//	std::cout << (*it).first << std::endl;
-	//}
-	//for (it = btc.getValue().begin(); it != btc.getValue().end(); it++)
-	//{
-	//	std::cout << (*it).second << std::endl;
-	//}
+		std::getline(iss, str_exchange_rate, '\0');
+		exchange_rate = std::strtod(str_exchange_rate.c_str(), NULL);
+		if (isValidRate(exchange_rate) == false)
+		{
+			std::cout << MSG_ERR_NOT_VALID_VALUE << std::endl;
+			return EXIT_FAILURE;
+		}
+		map_csv.insert(std::pair<std::string, double>(str_date, exchange_rate));
+	}
 
 	return 0;
 }

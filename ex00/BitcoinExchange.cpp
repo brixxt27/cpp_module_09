@@ -23,6 +23,10 @@ BitcoinExchange::~BitcoinExchange()
 //{
 //	return _exchange_rate;
 //}
+void	BitcoinExchange::setDate(std::string date)
+{
+	_date = date;
+}
 
 void	BitcoinExchange::setValue(float value)
 {
