@@ -21,23 +21,23 @@ public:
 	BitcoinExchange();
 	~BitcoinExchange();
 
-	//float	getValue() const;
-	//float	getExchangeRate() const;
+	//double	getValue() const;
+	//double	getExchangeRate() const;
 
 	void	setDate(std::string date);
-	void	setValue(float value);
-	void	setExchangeRate(float exchange_rate);
+	void	setValue(double value);
+	void	setExchangeRate(double exchange_rate);
 
 	void	printMultipledResult() const;
-	//double	multiplyValueAndExchangeRate() const;
 
 private:
 	BitcoinExchange(const BitcoinExchange& other);
 	BitcoinExchange&	operator=(const BitcoinExchange& rhs);
+	double	multiplyValueAndExchangeRate() const;
 
 	std::string	_date;
-	float	_value;
-	float	_exchange_rate;
+	double	_value;
+	double	_exchange_rate;
 };
 
 #endif

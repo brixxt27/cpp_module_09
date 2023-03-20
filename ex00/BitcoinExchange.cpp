@@ -14,26 +14,17 @@ BitcoinExchange::~BitcoinExchange()
 {
 }
 
-//float	BitcoinExchange::getValue() const
-//{
-//	return _value;
-//}
-
-//float	BitcoinExchange::getExchangeRate() const
-//{
-//	return _exchange_rate;
-//}
 void	BitcoinExchange::setDate(std::string date)
 {
 	_date = date;
 }
 
-void	BitcoinExchange::setValue(float value)
+void	BitcoinExchange::setValue(double value)
 {
 	_value = value;
 }
 
-void	BitcoinExchange::setExchangeRate(float exchange_rate)
+void	BitcoinExchange::setExchangeRate(double exchange_rate)
 {
 	_exchange_rate = exchange_rate;
 }
@@ -41,7 +32,7 @@ void	BitcoinExchange::setExchangeRate(float exchange_rate)
 
 void	BitcoinExchange::printMultipledResult() const
 {
-	//std::cout << value.
+	std::cout << _date << " => " << _value << " = " << multiplyValueAndExchangeRate() << std::endl;
 }
 
 /**
@@ -49,7 +40,8 @@ void	BitcoinExchange::printMultipledResult() const
  */
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
-	: _value(other._value)
+	: _date(other._date)
+	, _value(other._value)
 	, _exchange_rate(other._exchange_rate)
 {
 }
@@ -59,7 +51,13 @@ BitcoinExchange&	BitcoinExchange::operator=(const BitcoinExchange& rhs)
 	if (this == &rhs)
 		return *this;
 
+	_date = rhs._date;
 	_value = rhs._value;
 	_exchange_rate = rhs._exchange_rate;
 	return *this;
+}
+
+double	BitcoinExchange::multiplyValueAndExchangeRate() const
+{
+	return _value * _exchange_rate;
 }
