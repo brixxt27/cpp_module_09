@@ -11,8 +11,6 @@ int	main(int argc, char* argv[])
 
 	BitcoinExchange	btc;
 
-	std::map<std::string, float>	map_csv;
-
 	/**
 	 * Control files
 	 */
@@ -51,9 +49,11 @@ int	main(int argc, char* argv[])
 	std::string	str_getline;
 	const std::string	first_line_of_data = "date,exchange_rate";
 
-	//size_t	pos = 0;
+	size_t	pos = 0;
 
+	std::map<std::string, float>	map_csv;
 	std::multimap<std::string, float>::iterator	it;
+
 
 	std::getline(fin_csv, str_getline);
 	if (str_getline != first_line_of_data)
@@ -63,13 +63,19 @@ int	main(int argc, char* argv[])
 	}
 	while (std::getline(fin_csv, str_getline))
 	{
+		pos = str_getline.find(',');
+		if (pos == std::string::npos)
+		{
+			std::cout << MSG_ERR_NOT_EXIST_COMMA << std::endl;
+			return EXIT_FAILURE;
+		}
+		map_csv.insert(std::pair<std::string, float>(str_getline.substr(0, pos), 1));
+	}
 		//if ((pos = str_getline.find(' ')) == std::string::npos)
 		//{
 		//	std::cout << "There is not a space" << std::endl;
 		//	return EXIT_FAILURE;
 		//}
-		//btc.getValue().insert(std::pair<std::string, double>(str_getline.substr(0, pos), i));
-	}
 
 	//for (it = btc.getValue().begin(); it != btc.getValue().end(); it++)
 	//{
