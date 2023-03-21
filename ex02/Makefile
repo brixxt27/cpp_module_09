@@ -1,15 +1,8 @@
-NAME	=	polymorphism
+NAME	=	PmergeMe
 
 SRCS	=	main.cpp		\
-			Animal.cpp		\
-			Cat.cpp			\
-			Dog.cpp			\
-			WrongAnimal.cpp	\
-			WrongCat.cpp
+			PmergeMe.cpp
 
-INCS	=	Animal.hpp		\
-			Cat.hpp			\
-			Dog.hpp			\
-			WrongAnimal.hpp
+INCS	=	PmergeMe.hpp
 
 include ../template.mk
