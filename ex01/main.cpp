@@ -1,4 +1,5 @@
 #include "RPN.hpp"
+
 static bool	isNumOneGreaterThanOperator(int cnt_num, int cnt_operator)
 {
 	if (cnt_num - 1 != cnt_operator)
@@ -50,16 +51,21 @@ static bool	isValidExpression(char*	exp)
 
 int	main(int argc, char* argv[])
 {
-	std::string	exp(argv[1]);
-
 	if (argc != 2)
 	{
 		std::cout << "It's not valid arguments" << std::endl;
 		return 1;
 	}
+
 	if (isValidExpression(argv[1]) == false)
 	{
 		return 1;
 	}
+	
+	RPN	rpn;
+
+	if (rpn.executeRPN(argv[1]) == false)
+		return 1;
+	rpn.printResult();
 	return 0;
 }
