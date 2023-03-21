@@ -9,14 +9,15 @@ class RPN
 {
 public:
 	RPN();
-	RPN(const RPN& other);
-	RPN&	operator=(const RPN& rhs);
 	~RPN();
 
 	bool	executeRPN(std::string exp);
 	void	printResult() const;
 
 private:
+	RPN(const RPN& other);
+	RPN&	operator=(const RPN& rhs);
+	
 	std::stack<int>	_my_stack;
 	int				_result;
 };

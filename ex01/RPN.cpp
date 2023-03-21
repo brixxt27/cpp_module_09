@@ -70,6 +70,11 @@ bool	RPN::executeRPN(std::string exp)
 			}
 			else
 			{
+				if (num2 == 0)
+				{
+					std::cout << "error: floating point exception" << std::endl;
+					return false;
+				}
 				_my_stack.push(num1 / num2);
 			}
 		}
