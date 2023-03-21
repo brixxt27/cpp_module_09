@@ -1,13 +1,49 @@
 #include "RPN.hpp"
-
-static bool	isValidExpression(std::string exp)
+static bool	isNumOneGreaterThanOperator(int cnt_num, int cnt_operator)
 {
-	std::istringstream	iss(exp);
-	std::string	str_getline;
+	if (cnt_num - 1 != cnt_operator)
+		return false;
+	return true;
+}
 
-	while (std::getline(iss, str_getline, ' '))
+static bool	isValidExpression(char*	exp)
+{
+	int	cnt_num = 0;
+	int	cnt_operator = 0;
+	int	i = 0;
+
+	while (exp[i] != '\0')
 	{
-		std::cout << str_getline << std::endl;
+		if (exp[i] == ' ')
+		{
+			i++;
+			continue;
+		}
+
+		if (exp[i] == '+' || exp[i] == '-' || exp[i] == '*' || exp[i] == '/')
+		{
+			cnt_operator++;
+		}
+		else if (exp[i] >= '0' && exp[i] <= '9')
+		{
+			if (exp[i + 1] >= '0' && exp[i + 1] <= '9')
+			{
+				std::cout << "The numbers used in this operation will always be less than 10." << std::endl;
+				return false;
+			}
+			cnt_num++;
+		}
+		else
+		{
+			std::cout << "Your program must be able to handle operations with these tokens: +, -, /, *, numbers between 0 to 9." << std::endl;
+			return false;
+		}
+		i++;
+	}
+	if (isNumOneGreaterThanOperator(cnt_num, cnt_operator) == false)
+	{
+		std::cout << "The number of numbers muse be 1 greater than the number of operators." << std::endl;
+		return false;
 	}
 	return true;
 }
@@ -21,7 +57,7 @@ int	main(int argc, char* argv[])
 		std::cout << "It's not valid arguments" << std::endl;
 		return 1;
 	}
-	if (isValidExpression(exp) == false)
+	if (isValidExpression(argv[1]) == false)
 	{
 		return 1;
 	}
