@@ -21,9 +21,6 @@ public:
 	BitcoinExchange();
 	~BitcoinExchange();
 
-	//double	getValue() const;
-	//double	getExchangeRate() const;
-
 	void	setDate(std::string date);
 	void	setValue(double value);
 	void	setExchangeRate(double exchange_rate);
