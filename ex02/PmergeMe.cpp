@@ -125,12 +125,12 @@ void PmergeMe::mergeVector(int left, int half, int right)
 	
 	for (int i = left; i < right + 1; i++)
 	{
-		if (RA_index == right - half)
+		if (RA_index == right - half) // RA 가 정렬 완료한 상태
 		{
 			_vector[i] = LA[LA_index];
 			LA_index++;
 		}
-		else if (LA_index == half - left + 1)
+		else if (LA_index == half - left + 1) // LA 가 정렬 완료한 상태
 		{
 			_vector[i] = RA[RA_index];
 			RA_index++;
